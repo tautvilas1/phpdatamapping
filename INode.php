@@ -1,5 +1,2 @@
 <?php
-public interface INode
-{
-
-}
+interface INode{}
