@@ -16,7 +16,7 @@ class ViewpointImporter implements IImporter
         $viewpointList = array();
 
         $rawViewpointList = $this->databaseConnection->query("SELECT * FROM 1__viewpoints");
-        while($row = $rawViewpointList->fetch_assoc())
+        while($row = $rawViewpointList->fetch(PDO::FETCH_ASSOC))
         {
             $viewpointList[] = new Viewpoint($row['ID'], $row['Type'], $row['Name']);
         }
