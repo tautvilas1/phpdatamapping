@@ -27,8 +27,15 @@ foreach($nodeList as $node)
         {
             if($node->getChildId() == $innerNode->getParentId())
             {
-                $innerNode->setType($node->getChildType());
-                $node->setType($innerNode->getParentType());
+
+                if($node->getChildType != "")
+                {
+                    $innerNode->setType($node->getChildType());
+                }
+                if($innerNode->getParentType != "")
+                {
+                    $node->setType($innerNode->getParentType());
+                }
                 $linkList[] = new Link($linkKey,$node->getKey(),$innerNode->getKey(),$node->getDesc());
                 $linkKey++;
                 break;
