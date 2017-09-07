@@ -1,8 +1,8 @@
 <?php
 require_once './IDataSet.php';
-class Viewpoint implements IViewpoint
+class DataSet implements IDataSet
 {
-    private $id, $type, $name, $processList;
+    private $id, $type, $name, $dataElementList;
 
     public function __construct($id, $type, $name)
     {
@@ -26,13 +26,13 @@ class Viewpoint implements IViewpoint
         return $this->name;
     }
 
-    public function GetProcessList()
+    public function GetDataElementList()
     {
-        return $this->processList;
+        return $this->dataElementList;
     }
 
-    public function SetProcessList($processList)
+    public function SetDataElementList($dataElementList)
     {
-        return $this->processList;
+        $this->dataElementList = $dataElementList;
     }
 }

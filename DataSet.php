@@ -1,6 +1,6 @@
 <?php
-require_once './IDataSet.php';
-class Viewpoint implements IViewpoint
+require_once 'IApplication.php';
+class Application implements IApplication
 {
     private $id, $type, $name, $processList;
 
@@ -33,6 +33,6 @@ class Viewpoint implements IViewpoint
 
     public function SetProcessList($processList)
     {
-        return $this->processList;
+        $this->processList = $processList;
     }
 }

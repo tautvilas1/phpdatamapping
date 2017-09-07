@@ -1,6 +1,6 @@
 <?php
 require_once './IDataDictionary.php';
-interface IViewpoint extends IDataDictionary {
-    public function GetProcessList();
-    public function SetProcessList();
+interface IDataSet extends IDataDictionary {
+    public function GetDataElementList();
+    public function SetDataElementList($dataElementList);
 }
