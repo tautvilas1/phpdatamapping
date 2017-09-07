@@ -28,11 +28,11 @@ foreach($nodeList as $node)
             if($node->getChildId() == $innerNode->getParentId())
             {
 
-                if($node->getChildType != "")
+                if($node->getChildType() != "")
                 {
                     $innerNode->setType($node->getChildType());
                 }
-                if($innerNode->getParentType != "")
+                if($innerNode->getParentType() != "")
                 {
                     $node->setType($innerNode->getParentType());
                 }
