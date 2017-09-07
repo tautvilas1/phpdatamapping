@@ -9,7 +9,7 @@
 class Link
 {
 
-    private $key, $from, $to, $desc;
+    private $key, $from, $to, $desc, $type = "Link";
 
     /**
      * Link constructor.
@@ -88,5 +88,14 @@ class Link
     {
         $this->desc = $desc;
     }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
 
 }
