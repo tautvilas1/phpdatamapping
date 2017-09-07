@@ -9,7 +9,7 @@
 class Link
 {
 
-    private $key, $from, $to;
+    private $key, $from, $to, $desc;
 
     /**
      * Link constructor.
@@ -17,13 +17,14 @@ class Link
      * @param $from
      * @param $to
      */
-    public function __construct($key, $from, $to)
+    public function __construct($key, $from, $to, $desc)
     {
         $this->key = $key;
         $this->from = $from;
         $this->to = $to;
+        $this->desc = $desc;
     }
-    
+
     /**
      * @return mixed
      */
@@ -70,6 +71,22 @@ class Link
     public function setTo($to)
     {
         $this->to = $to;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDesc()
+    {
+        return $this->desc;
+    }
+
+    /**
+     * @param mixed $desc
+     */
+    public function setDesc($desc)
+    {
+        $this->desc = $desc;
     }
 
 }
