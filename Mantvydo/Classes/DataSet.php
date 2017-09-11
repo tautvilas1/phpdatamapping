@@ -1,6 +1,6 @@
 <?php
-require_once 'IApplication.php';
-class Application implements IApplication
+require_once 'IDataSet.php';
+class DataSet extends InnerGroupNode
 {
     private $id, $type, $name, $processList;
 
