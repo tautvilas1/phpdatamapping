@@ -1,19 +1,26 @@
 <?php
-require_once '../AbstractClasses/GroupNode.php';
+require_once 'AbstractClasses/InnerGroupNode.php';
 class Application extends InnerGroupNode
 {
     /**
      * Application constructor.
+     * @param $id
      * @param $key
      * @param $text
      */
-    public function __construct($key, $text)
+    public function __construct($id, $key, $text)
     {
-          $this->key = $key;
-          $this->text = $text;
+        $this->id = $id;
+        $this->key = $key;
+        $this->text = $text;
     }
 
-    private $group;
+    protected $id, $key, $text, $group;
+
+    public function GetID()
+    {
+        return $this->id;
+    }
 
     public function GetKey()
     {

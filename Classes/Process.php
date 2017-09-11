@@ -15,7 +15,7 @@ class Process extends GroupNode
         $this->text = $text;
     }
 
-    public $id, $key, $text;
+    protected $id, $key, $text;
 
     public function GetID()
     {
