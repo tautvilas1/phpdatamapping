@@ -19,7 +19,7 @@ $processlist = $mappingToProcessConverter->ConvertMappingListToProcessList($mapp
 
 $mappingToApplicationConverter = new MappingToApplicationConverter();
 
-$applicationlist = $mappingToApplicationConverter->ConvertMappingListToApplicationList($mappingList);
+$applicationlist = $mappingToApplicationConverter->ConvertMappingListToApplicationList($mappingList, $processlist);
 
 print_r($processlist);
 print_r($applicationlist);

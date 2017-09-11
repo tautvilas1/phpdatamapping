@@ -7,12 +7,14 @@ class Application extends InnerGroupNode
      * @param $id
      * @param $key
      * @param $text
+     * @param $group
      */
-    public function __construct($id, $key, $text)
+    public function __construct($id, $key, $text, $group)
     {
         $this->id = $id;
         $this->key = $key;
         $this->text = $text;
+        $this->group = $group;
     }
 
     protected $id, $key, $text, $group;
@@ -42,11 +44,6 @@ class Application extends InnerGroupNode
         return $this->group;;
     }
     
-    public function SetGroup($group)
-    {
-        $this->group = $group;
-    }
-            
     public function GetCategory()
     {
         return 'OfNodes';

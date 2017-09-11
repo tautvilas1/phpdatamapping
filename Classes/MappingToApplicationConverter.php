@@ -2,7 +2,7 @@
 require_once 'Application.php';
 class MappingToApplicationConverter
 {
-    public function ConvertMappingListToApplicationList(array $mappingList)
+    public function ConvertMappingListToApplicationList(array $mappingList, array $processList)
     {
         $applicationList;
 
@@ -10,7 +10,12 @@ class MappingToApplicationConverter
         {
             foreach ($mappingList as $mapping) {
                 if ($mapping['Child Type'] === 'Application') {
-                    $applicationList[] = new Application($mapping['Child ID'], $mapping['key'], $mapping['text']);
+                    foreach ($processList as $process) {
+                        if ($mapping['Parent ID'] === $process->GetID()) {
+                            $applicationList[] = new Application($mapping['Child ID'], $mapping['key'], $mapping['text'], $process->GetKey());
+                            break;
+                        }
+                    }
                 }
             }
 
