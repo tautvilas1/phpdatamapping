@@ -1,13 +1,19 @@
 <?php
-require_once './DatabaseConnector.php';
-require_once './ViewpointImporter.php';
+opcache_reset ();
+require_once './Classes/DatabaseConnector.php';
+require_once './Classes/MappingListFetcher.php';
+require_once './Classes/MappingToProcessConverter.php';
 
 $databaseConnector = new DatabaseConnector();
 
 $databaseConnection = $databaseConnector->ConnectToMysql('localhost', 'playground', 'root', 'password');
 
-$viewpointImporter = new ViewpointImporter($conn);
+$mappingListFetcher = new MappingListFetcher();
 
-$list = $viewpointImporter->Import();
+$mappingList = $mappingListFetcher->FetchMappingList($databaseConnection, 'mappings');
 
-print_r($list);
+$mappingToProcessConverter = new MappingToProcessConverter();
+
+$mappingToProcessConverter->ConvertMappingListToProcessList($mappingList);
+
+//print_r($mappingList);
