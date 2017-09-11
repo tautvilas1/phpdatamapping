@@ -5,6 +5,7 @@ require_once './Classes/MappingListFetcher.php';
 require_once './Classes/MappingToProcessConverter.php';
 require_once './Classes/MappingToApplicationConverter.php';
 require_once './Classes/MappingToDataSetConverter.php';
+require_once './Classes/MappingToDataElementConverter.php';
 
 $databaseConnector = new DatabaseConnector();
 
@@ -26,6 +27,11 @@ $mappingToDataSetConverter = new MappingToDataSetConverter();
 
 $dataSetList = $mappingToDataSetConverter->ConvertMappingListToDataSetList($mappingList, $applicationlist);
 
+$mappingToDataElementConverter = new MappingToDataElementConverter();
+
+$dataElementList = $mappingToDataElementConverter->ConvertMappingListToDataElementList($mappingList, $dataSetList);
+
 print_r($processlist);
 print_r($applicationlist);
 print_r($dataSetList);
+print_r($dataElementList);

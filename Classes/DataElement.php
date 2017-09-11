@@ -1,24 +1,47 @@
 <?php
-require_once 'Interfaces/ILeafNode.php';
-class DataSet implements ILeafNode
+require_once 'Interfaces/IDataElement.php';
+class DataElement implements IDataElement
 {
-    private $id, $type, $name, $dataElementList;
-
-    public function __construct($id, $type, $name)
+    /**
+     * Application constructor.
+     * @param $id
+     * @param $key
+     * @param $text
+     * @param $group
+     * @param $description
+     * @param $ads
+     * @param $owner
+     * @param $control
+     * @param $report
+     */
+    public function __construct($id, $key, $text, $group, $description, $ads, $owner, $control, $report)
     {
-        $this->id = $id;
-        $this->type = $type;
-        $this->name = $name;
+         $this->id = $id;
+         $this->key = $key;
+         $this->text = $text;
+         $this->group = $group;
+         $this->description = $description;
+         $this->ads = $ads;
+         $this->owner = $owner;
+         $this->control = $control;
+         $this->report = $report;
     }
+
+    private $id, $key, $text, $group, $description, $ads, $owner, $control, $report;
 
     public function GetID()
     {
         return $this->id;
     }
 
-    public function GetType()
+    public function GetKey()
     {
-        return $this->type;
+        return $this->key;
+    }
+
+    public function GetText()
+    {
+        return $this->text;
     }
 
     public function GetName()
@@ -26,8 +49,33 @@ class DataSet implements ILeafNode
         return $this->name;
     }
 
-    public function GetDataElementList()
+    public function GetGroup()
     {
-        return $this->dataElementList;
+        return $this->group;
+    }
+
+    public function GetDescription()
+    {
+        return $this->description;
+    }
+
+    public function GetAds()
+    {
+        return $this->ads;
+    }
+
+    public function GetOwner()
+    {
+        return $this->owner;
+    }
+
+    public function GetControl()
+    {
+        return $this->control;
+    }
+
+    public function GetReport()
+    {
+        return $this->report;
     }
 }
