@@ -1,4 +1,5 @@
 <?php
+require_once 'Interfaces/IGroupNode.php';
 abstract class GroupNode implements IGroupNode
 {
     protected $key, $text;

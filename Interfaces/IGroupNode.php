@@ -1,4 +1,5 @@
 <?php
+require_once 'INode.php';
 interface IGroupNode extends INode
 {
     public function IsGroup();

@@ -1,5 +1,5 @@
 <?php
-opcache_reset ();
+opcache_reset();
 require_once './Classes/DatabaseConnector.php';
 require_once './Classes/MappingListFetcher.php';
 require_once './Classes/MappingToProcessConverter.php';
@@ -14,6 +14,6 @@ $mappingList = $mappingListFetcher->FetchMappingList($databaseConnection, 'mappi
 
 $mappingToProcessConverter = new MappingToProcessConverter();
 
-$mappingToProcessConverter->ConvertMappingListToProcessList($mappingList);
+$processlist = $mappingToProcessConverter->ConvertMappingListToProcessList($mappingList);
 
-//print_r($mappingList);
+print_r($processlist);
