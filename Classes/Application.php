@@ -41,7 +41,7 @@ class Application extends InnerGroupNode
     
     public function GetGroup()
     {
-        return $this->group;;
+        return $this->group;
     }
     
     public function GetCategory()
