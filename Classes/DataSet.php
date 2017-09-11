@@ -51,11 +51,16 @@ class DataSet extends InnerGroupNode
             
     public function GetGrpColor()
     {
-        return '#F0F0F0';
+        return '#FFFFFF';
     }  
+
+    public function GetGrpBorder()
+    {
+        return '#C0C0C0';
+    } 
     
     public function GetImage()
     {
-        return 'images/application.png';
+        return 'images/domain.png';
     }
 }
