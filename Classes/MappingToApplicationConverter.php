@@ -4,12 +4,16 @@ class MappingToApplicationConverter
 {
     public function ConvertMappingListToApplicationList(array $mappingList, array $processList)
     {
-        $applicationList;
+        $applicationList = [];
 
         try
         {
             foreach ($mappingList as $mapping) {
                 if ($mapping['Child Type'] === 'Application') {
+                    foreach ($applicationList as $application)
+                        if ($application->GetID() === $mapping['Child ID'])
+                            break;
+
                     foreach ($processList as $process) {
                         if ($mapping['Parent ID'] === $process->GetID()) {
                             $applicationList[] = new Application($mapping['Child ID'], $mapping['key'], $mapping['text'], $process->GetKey());

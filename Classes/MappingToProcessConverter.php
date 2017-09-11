@@ -4,12 +4,16 @@ class MappingToProcessConverter
 {
     public function ConvertMappingListToProcessList(array $mappingList)
     {
-        $processList;
+        $processList = [];
 
         try
         {
             foreach ($mappingList as $mapping) {
                 if ($mapping['Child Type'] === 'Process') {
+                    foreach ($processList as $process)
+                        if ($process->GetID() === $mapping['Child ID'])
+                            break;
+
                     $processList[] = new Process($mapping['Child ID'], $mapping['key'], $mapping['text']);
                 }
             }
