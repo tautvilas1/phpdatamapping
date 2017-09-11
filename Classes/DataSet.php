@@ -1,38 +1,61 @@
 <?php
-require_once 'IDataSet.php';
+require_once 'AbstractClasses/InnerGroupNode.php';
 class DataSet extends InnerGroupNode
 {
-    private $id, $type, $name, $processList;
-
-    public function __construct($id, $type, $name)
+    /**
+     * DataSet constructor.
+     * @param $id
+     * @param $key
+     * @param $text
+     * @param $group
+     */
+    public function __construct($id, $key, $text, $group)
     {
         $this->id = $id;
-        $this->type = $type;
-        $this->name = $name;
+        $this->key = $key;
+        $this->text = $text;
+        $this->group = $group;
     }
+
+    protected $id, $key, $text, $group;
 
     public function GetID()
     {
         return $this->id;
     }
 
-    public function GetType()
+    public function GetKey()
     {
-        return $this->type;
+        return $this->key;
     }
 
-    public function GetName()
+    public function GetText()
     {
-        return $this->name;
+        return $this->text;
     }
-
-    public function GetProcessList()
+            
+    public function IsGroup()
     {
-        return $this->processList;
+        return true;
     }
-
-    public function SetProcessList($processList)
+    
+    public function GetGroup()
     {
-        $this->processList = $processList;
+        return $this->group;
+    }
+    
+    public function GetCategory()
+    {
+        return 'OfNodes';
+    }
+            
+    public function GetGrpColor()
+    {
+        return '#F0F0F0';
+    }  
+    
+    public function GetImage()
+    {
+        return 'images/application.png';
     }
 }
