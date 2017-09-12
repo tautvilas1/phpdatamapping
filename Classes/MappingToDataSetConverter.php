@@ -10,13 +10,16 @@ class MappingToDataSetConverter
         {
             foreach ($mappingList as $mapping) {
                 if ($mapping['Child Type'] === 'Dataset') {
-                    foreach ($dataSetList as $dataSet)
+                    foreach ($dataSetList as $dataSet) {
                         if ($dataSet->GetID() === $mapping['Child ID'])
                             break;
+                    }
 
                     foreach ($applicationList as $application) {
                         if ($mapping['Parent ID'] === $application->GetID()) {
-                            $dataSetList[] = new DataSet($mapping['Child ID'], $mapping['key'], $mapping['text'], $application->GetKey());
+                            $dataSetList[] = new DataSet(
+                                $mapping['Child ID'], $mapping['key'], $mapping['text'], true, $application->GetKey(), 'OfNodes', '#FFFFFF', '#C0C0C0', 'images/domain.png');
+                            
                             break;
                         }
                     }

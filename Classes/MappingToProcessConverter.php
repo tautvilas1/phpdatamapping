@@ -14,7 +14,8 @@ class MappingToProcessConverter
                         if ($process->GetID() === $mapping['Child ID'])
                             break;
 
-                    $processList[] = new Process($mapping['Child ID'], $mapping['key'], $mapping['text']);
+                    $processList[] = new Process(
+                        $mapping['Child ID'], $mapping['key'], $mapping['text'], true, 'OfGroups', '#D8D8D8');
                 }
             }
 

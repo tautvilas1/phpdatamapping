@@ -16,7 +16,9 @@ class MappingToApplicationConverter
 
                     foreach ($processList as $process) {
                         if ($mapping['Parent ID'] === $process->GetID()) {
-                            $applicationList[] = new Application($mapping['Child ID'], $mapping['key'], $mapping['text'], $process->GetKey());
+                            $applicationList[] = new Application(
+                                $mapping['Child ID'], $mapping['key'], $mapping['text'], true, $process->GetKey(), 'OfNodes', '#F0F0F0', 'images/application.png');
+                            
                             break;
                         }
                     }

@@ -7,17 +7,26 @@ class Application extends InnerGroupNode
      * @param $id
      * @param $key
      * @param $text
+     * @param $isGroup
      * @param $group
+     * @param $category
+     * @param $grpColor
+     * @param $grpBorder
+     * @param $image
      */
-    public function __construct($id, $key, $text, $group)
-    {
-        $this->id = $id;
-        $this->key = $key;
-        $this->text = $text;
-        $this->group = $group;
-    }
+     public function __construct($id, $key, $text, $isGroup, $group, $category, $grpColor, $image)
+     {
+         $this->id = $id;
+         $this->key = $key;
+         $this->text = $text;
+         $this->isGroup = $isGroup;
+         $this->group = $group;
+         $this->category = $category;
+         $this->grpColor = $grpColor;
+         $this->image = $image;
+     }
 
-    protected $id, $key, $text, $group;
+    protected $id, $key, $text, $isGroup, $group, $category, $grpColor, $image;
 
     public function GetID()
     {
@@ -36,7 +45,7 @@ class Application extends InnerGroupNode
             
     public function IsGroup()
     {
-        return true;
+        return $this->isGroup;
     }
     
     public function GetGroup()
@@ -46,16 +55,16 @@ class Application extends InnerGroupNode
     
     public function GetCategory()
     {
-        return 'OfNodes';
+        return $this->category;
     }
             
     public function GetGrpColor()
     {
-        return '#F0F0F0';
+        return $this->grpColor;
     }  
     
     public function GetImage()
     {
-        return 'images/application.png';
+        return $this->image;
     }
 }

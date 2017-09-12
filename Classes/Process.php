@@ -7,15 +7,21 @@ class Process extends GroupNode
      * @param $id
      * @param $key
      * @param $text
+     * @param $isGroup
+     * @param $category
+     * @param $grpColor
      */
-    public function __construct($id, $key, $text)
+    public function __construct($id, $key, $text, $isGroup, $category, $grpColor)
     {
         $this->id = $id;
         $this->key = $key;
         $this->text = $text;
+        $this->isGroup = $isGroup;
+        $this->category = $category;
+        $this->grpColor = $grpColor;
     }
 
-    protected $id, $key, $text;
+    protected $id, $key, $text, $isGroup, $category, $grpColor;
 
     public function GetID()
     {
@@ -34,16 +40,16 @@ class Process extends GroupNode
             
     public function IsGroup()
     {
-        return true;
+        return $this->isGroup;
     }
             
     public function GetCategory()
     {
-        return 'OfGroups';
+        return $this->category;
     }
             
     public function GetGrpColor()
     {
-        return '#D8D8D8';
+        return $this->grpColor;
     }          
 }

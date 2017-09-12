@@ -7,17 +7,27 @@ class DataSet extends InnerGroupNode
      * @param $id
      * @param $key
      * @param $text
+     * @param $isGroup
      * @param $group
+     * @param $category
+     * @param $grpColor
+     * @param $grpBorder
+     * @param $image
      */
-    public function __construct($id, $key, $text, $group)
+    public function __construct($id, $key, $text, $isGroup, $group, $category, $grpColor, $grpBorder, $image)
     {
         $this->id = $id;
         $this->key = $key;
         $this->text = $text;
+        $this->isGroup = $isGroup;
         $this->group = $group;
+        $this->category = $category;
+        $this->grpColor = $grpColor;
+        $this->grpBorder = $grpBorder;
+        $this->image = $image;
     }
 
-    protected $id, $key, $text, $group;
+    protected $id, $key, $text, $isGroup, $group, $category, $grpColor, $grpBorder, $image;
 
     public function GetID()
     {
@@ -36,7 +46,7 @@ class DataSet extends InnerGroupNode
             
     public function IsGroup()
     {
-        return true;
+        return $this->isGroup;
     }
     
     public function GetGroup()
@@ -46,21 +56,21 @@ class DataSet extends InnerGroupNode
     
     public function GetCategory()
     {
-        return 'OfNodes';
+        return $this->category;
     }
             
     public function GetGrpColor()
     {
-        return '#FFFFFF';
+        return $this->grpColor;
     }  
 
     public function GetGrpBorder()
     {
-        return '#C0C0C0';
+        return $this->grpBorder;
     } 
     
     public function GetImage()
     {
-        return 'images/domain.png';
+        return $this->image;
     }
 }
