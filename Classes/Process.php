@@ -21,7 +21,7 @@ class Process extends GroupNode
         $this->grpColor = $grpColor;
     }
 
-    protected $id, $key, $text, $isGroup, $category, $grpColor;
+    public $id, $key, $text, $isGroup, $category, $grpColor;
 
     public function GetID()
     {

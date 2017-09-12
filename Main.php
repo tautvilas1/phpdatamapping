@@ -17,11 +17,11 @@ $mappingList = $mappingListFetcher->FetchMappingList($databaseConnection, 'mappi
 
 $mappingToProcessConverter = new MappingToProcessConverter();
 
-$processlist = $mappingToProcessConverter->ConvertMappingListToProcessList($mappingList);
+$processList = $mappingToProcessConverter->ConvertMappingListToProcessList($mappingList);
 
 $mappingToApplicationConverter = new MappingToApplicationConverter();
 
-$applicationlist = $mappingToApplicationConverter->ConvertMappingListToApplicationList($mappingList, $processlist);
+$applicationlist = $mappingToApplicationConverter->ConvertMappingListToApplicationList($mappingList, $processList);
 
 $mappingToDataSetConverter = new MappingToDataSetConverter();
 
@@ -31,7 +31,9 @@ $mappingToDataElementConverter = new MappingToDataElementConverter();
 
 $dataElementList = $mappingToDataElementConverter->ConvertMappingListToDataElementList($mappingList, $dataSetList);
 
-print_r($processlist);
-print_r($applicationlist);
-print_r($dataSetList);
-print_r($dataElementList);
+echo json_encode($processList);
+
+//print_r($processList);
+// print_r($applicationlist);
+// print_r($dataSetList);
+// print_r($dataElementList);
